@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <Windows.h>
 #include <mmdeviceapi.h>
 #include <audiopolicy.h>
@@ -45,7 +45,7 @@ BOOL IsMicrophoneRecording()
 
 		// #2 Determine whether it is the microphone device you are focusing on
 		std::size_t foundEN = nameStr.find(L"Microphone");
-		std::size_t foundCN = nameStr.find(L"��˷�");
+		std::size_t foundCN = nameStr.find(L"麦克风");
 		if (foundEN != std::string::npos || foundCN != std::string::npos)
 		{
 			// Print endpoint friendly name.
@@ -54,7 +54,7 @@ BOOL IsMicrophoneRecording()
 
 			// Get the session manager.
 			hr = pCaptureDevice->Activate(__uuidof(IAudioSessionManager2), CLSCTX_ALL,NULL, (void**)& pSessionManager);
-			//break;
+			break;
 		}
 	}
 
