@@ -5,6 +5,8 @@
 #include <Functiondiscoverykeys_devpkey.h>
 #include <string>
 
+#include "CallMgr.h"
+
 #pragma comment(lib, "winmm.lib")
 
 #define SAFE_RELEASE(punk) { if ((punk) != NULL) { (punk)->Release(); (punk) = NULL; } }
@@ -136,8 +138,13 @@ done:
 
 int main()
 {
-	setlocale(LC_ALL, "");
-	//RegisterAudioSessionNotification
-	IsMicrophoneRecording();
+	setlocale(LC_ALL, ""); // wprintf
+
+	//IsMicrophoneRecording();
+
+	CallMgr::GetInstance().SetCallEventListener(L"SoundRec.exe", L"cloudmusic.exe", nullptr);
+
+	getchar();
+
 	return 0;
 }
